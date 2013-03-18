@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<div id="middle" align="center">
+
+	<table>
+  		<tr>
+    		<th></th>
+    		<th></th>
+    		<th></th>
+    		<th></th>
+    		<th></th>
+  		</tr>
+    
+      <tr>
+        
+    	  <td><center>
+          <%= image_tag("papyrus1.png") %>
+          <div id="artykul" align="center" style="background-image: url(/assets/papyrus2.png);"><h1><%= @article.name %></h1><%= raw @article.content %>
+          </div>
+          <%= image_tag("papyrus3.png") %>
+
+        </td>
+        
+    		<td></td>
+  		</tr>
+  		<tr>
+    		<td><center><%= link_to 'Edit', edit_article_path(@article) %> | <%= link_to 'Back', articles_path %></center></td>
+    		<td><center></center></td>
+    		<td><center></center></td>
+  		</tr>
+      <tr>
+    </table>
+</div>
