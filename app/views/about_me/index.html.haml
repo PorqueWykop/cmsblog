@@ -1,0 +1,14 @@
+
+%section#about_me
+  - @about_mes.reverse_each do |about_me|
+    %article.about_me{:id => "about_me-#{about_me.id}"}
+      %ul#artykuly.box
+        %li
+          %header#tytul.artykuly-post
+            %h1= about_me.name
+        %li
+          %p#tresc= raw about_me.content
+        %br/
+        %em
+          = link_to 'Edycja', edit_about_me_path(about_me)
+          | #{link_to 'Back', articles_path}

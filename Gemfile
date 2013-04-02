@@ -39,3 +39,6 @@ gem 'jquery-rails'
 
 gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
+
+gem 'haml'
+gem 'sass'

@@ -1,0 +1,10 @@
+%section#ramka
+  %article#news
+    %ul
+      %li
+        %header#tytul.artykuly-post
+          %h1 Edytuj Wpis
+    =render 'form'
+    %span= link_to 'Show', @article
+    %em= link_to 'Bacl', articles_path
+

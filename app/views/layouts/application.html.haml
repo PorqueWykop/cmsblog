@@ -1,0 +1,45 @@
+!!! 5
+%html{:lang => "pl"}
+  %head
+    %title
+      -if defined? @article.name
+        Wpis: 
+        =@article.name
+      -else
+        Proque CMS Blog!
+    =stylesheet_link_tag "application", :media => "all"
+    =javascript_include_tag "application"
+    =tinymce_assets
+    =csrf_meta_tags
+    %link{:href => "http://fonts.googleapis.com/css?family=Patrick+Hand+SC", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    %p{:style => "color: green"}= flash[:notice]
+    %header
+      %a#logo{:href => root_path}
+        %h1.texthide Porque & CMS Blog
+    %nav#primary
+      %ul
+        %li= link_to 'Home', root_path
+        %li= link_to 'O mnie', about_me_index_path
+        %li= link_to 'Kontakt', root_path
+    #wrap
+      = yield
+
+      %footer#primary-foot
+        %section#history
+          %header
+            %h1 Co uzyte?
+          %p
+            Do tego projektu w ramach nauki zostal uzyty: ror, html5 i css3.
+            %br/
+        %section#info
+          %nav#footer-nav
+            %ul
+              %li= link_to 'Home', root_path
+              %li= link_to 'O mnie', root_path
+              %li= link_to 'Kontakt', root_path
+              %li= link_to 'Nowy wpis', new_article_path
+          %p.copyright
+            \© 2013 wykop.pl/ludzie/porque/, Blog CMS by Porque
+            %br/
+            Pierwsza odslona, psuedo systemu cms do bloga.

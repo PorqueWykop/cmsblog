@@ -1,0 +1,11 @@
+%section#ramka
+  %article#news
+    %ul
+      %li
+        %header#tytul.artykuly-post
+          %h1 Edytuj Wpis
+    =render 'form'
+    %br/
+    %span= link_to 'Show', @article
+    %em= link_to 'Cofnij', articles_path
+

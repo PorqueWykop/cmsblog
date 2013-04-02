@@ -1,0 +1,14 @@
+%section
+  - @articles.reverse_each do |article|
+    %article.news{:id => "news-#{article.id}"}
+      %ul#artykuly.box
+        %li
+          %header#tytul.artykuly-post
+            %h1= link_to article.name, article
+        %li
+          %p#tresc= raw truncate(article.content, :length => 1500, :separator => ' ')
+          %br/
+          %span= link_to 'Czytaj więcej', article
+          %em
+            = link_to 'Edycja', edit_article_path(article)
+            | #{link_to 'Usun wpis', article, method: :delete, data: {confirm: 'Jestes pewien?'}}

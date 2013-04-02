@@ -1,6 +1,13 @@
 Blogcms::Application.routes.draw do
-  resources :articles
 
+  resources :about_me
+
+
+  resources :articles do
+    resources :answers do
+      resources :replies
+    end
+  end
   root to:"articles#index"
 
 

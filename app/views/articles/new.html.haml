@@ -1,0 +1,9 @@
+%p#notice= notice
+%section#ramka
+  %article#news
+    %ul
+      %li
+        %header#tytul.artykuly-post
+          %h1 Nowy Wpis
+    =render 'form'
+    %em= link_to 'Back', articles_path

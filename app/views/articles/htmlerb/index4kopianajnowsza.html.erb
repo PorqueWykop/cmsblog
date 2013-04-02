@@ -1,0 +1,19 @@
+<div id="content">
+  <section>
+    <article id="news">
+      <% @articles.reverse_each do |article| %>  
+        <ul id="artykuly" class="box">
+          <li><header id="tytul" class="artykuly-post"><h1><%= link_to article.name, article %></h1></header></li>
+          <li><p id="tresc"><%= raw truncate(article.content, :length => 1500, :separator => ' ') %></p>
+            <br>
+            <span><%= link_to 'Czytaj więcej', article %></span>
+            <em><%= link_to 'Edycja', edit_article_path(article) %> | <%= link_to 'Usun wpis', article, method: :delete, data: { confirm: 'Jestes pewien?' } %></em>
+          </li>
+        </ul>
+        <center></center>
+      <% end %>
+    </article>
+  
+    <center><%= link_to 'Nowy Artykul', new_article_path %></center>
+  </section>
+</div>

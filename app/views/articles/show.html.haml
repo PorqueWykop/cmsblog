@@ -1,0 +1,41 @@
+%p#notice= notice
+%section
+  %article.news{:id => "news-#{@article.id}"}
+    %ul#artykuly
+      %li
+        %header#tytul.artykuly-post
+          %h1= @article.name
+      %li
+        %p#tresc= raw @article.content
+        %em
+          = link_to 'Edycja', edit_article_path(@article)
+          | #{link_to 'Back', articles_path}
+
+%section#komentarze
+  %article
+    %header
+      %h1 Komentarze:
+    - if @article.answers.each.count == 0
+      %p#brak_komentarzy
+        Brak Komentarzy!!! Badz pierwszy!
+    - else
+      - @article.answers.each do |answer|
+        %ul.komcie{:id => "koment-#{answer.id}"}
+          %li
+            %p#komenty1.komentarze-post= answer.status
+          %li
+            %p#nazwa_usera
+              Autor:
+              = answer.name
+          %br/
+          - answer.replies.each do |reply|
+            = reply.content
+            Autor:
+            = reply.name
+            %br/
+
+%br/
+
+#nowykomentarz
+  %b
+    =link_to 'Dodaj komentarz', new_article_answer_path([@article, @answer])
