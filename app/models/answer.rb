@@ -4,7 +4,7 @@ class Answer < ActiveRecord::Base
   validates :status, :name, :presence => true
 
   belongs_to :article
-  
-  has_many :replies, dependent: :destroy
+
+  belongs_to :replies, :class_name => "Answer", :foreign_key => "answer_id"
   
 end

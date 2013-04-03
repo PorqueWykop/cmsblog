@@ -7,6 +7,8 @@
           %h1= @article.name
       %li
         %p#tresc= raw @article.content
+        %br/
+        = @article.created_at
         %em
           = link_to 'Edycja', edit_article_path(@article)
           | #{link_to 'Back', articles_path}
@@ -28,11 +30,8 @@
               Autor:
               = answer.name
           %br/
-          - answer.replies.each do |reply|
-            = reply.content
-            Autor:
-            = reply.name
-            %br/
+          %p#odpowiedzi Odpowiedzi:
+
 
 %br/
 

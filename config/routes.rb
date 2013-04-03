@@ -4,9 +4,7 @@ Blogcms::Application.routes.draw do
 
 
   resources :articles do
-    resources :answers do
-      resources :replies
-    end
+    resources :answers
   end
   root to:"articles#index"
 
